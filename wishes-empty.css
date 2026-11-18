@@ -1,0 +1,153 @@
+.wishes-empty {
+    --wishes-accent: var(--color-primary, currentColor);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 640px;
+    margin: 12px auto;
+    padding: 26px 14px 28px;
+    border: 1px solid currentColor;
+    border-color: color-mix(in srgb, var(--wishes-accent) 18%, transparent);
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--wishes-accent) 4%, transparent);
+    color: inherit;
+    font-family: inherit;
+    text-align: center;
+}
+
+.wishes-empty__ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 0 auto 14px;
+    color: var(--wishes-accent);
+}
+
+.wishes-empty__ornament::before,
+.wishes-empty__ornament::after {
+    content: "";
+    width: 42px;
+    height: 1px;
+    background: currentColor;
+    opacity: .3;
+}
+
+.wishes-empty__ornament svg {
+    display: block;
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+}
+
+.wishes-empty .wishes-empty__title,
+.wishes-empty .wishes-empty__invitation {
+    padding: 0;
+    color: inherit;
+    font-family: inherit;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.65;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+}
+
+.wishes-empty .wishes-empty__title {
+    margin: 0;
+    font-size: clamp(16px, 4.3vw, 20px);
+    font-weight: 600;
+}
+
+.wishes-empty .wishes-empty__invitation {
+    margin: 7px 0 0;
+    font-size: clamp(16px, 4vw, 18px);
+    font-weight: 400;
+    opacity: .76;
+}
+
+.w6 .wishes-empty {
+    --wishes-accent: currentColor;
+    border-radius: 6px;
+}
+
+.w7 .wishes-empty {
+    --wishes-accent: var(--w7-wine);
+    border-color: var(--w7-line);
+    border-radius: 4px;
+}
+
+.w8 .wishes-empty {
+    --wishes-accent: var(--w8-olive);
+    border-radius: 24px;
+}
+
+/* Full-width legacy sections need the same 15px gutters as their neighbours. */
+.carousel-inner > .wishes-empty,
+.sitecontainer > .wishes-empty {
+    width: calc(100% - 30px);
+}
+
+.wishes-empty .wishes-empty__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    max-width: 100%;
+    min-height: 44px;
+    margin: 20px auto 0;
+    padding: 11px 24px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--wishes-accent) 8%, transparent);
+    color: var(--wishes-accent);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background-color .2s ease, transform .2s ease;
+}
+
+.wishes-empty__button svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+}
+
+.wishes-empty .wishes-empty__button:hover {
+    color: var(--wishes-accent);
+    background: color-mix(in srgb, var(--wishes-accent) 15%, transparent);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.wishes-empty__button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+}
+
+:is(.w6, .w7, .w8) section:has(> .wishes-empty) > .tilek_kaldir {
+    display: none;
+}
+
+.sitecontainer:has(.wishes-empty) .ozgetilekter,
+section:has(> .wishes-empty) > a[href$="/tilekter"] {
+    display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wishes-empty .wishes-empty__button {
+        transition: none;
+    }
+}
+
+/* Only the wishes carousel containing the empty state is affected. */
+.carousel:has(> .carousel-inner > .wishes-empty) > .carousel-control-prev,
+.carousel:has(> .carousel-inner > .wishes-empty) > .carousel-control-next,
+.carousel:has(> .carousel-inner > .wishes-empty) > .carousel-indicators {
+    display: none !important;
+}
+
+.carousel:has(> .carousel-inner > .wishes-empty) > .carousel-inner {
+    padding: 0 !important;
+}
